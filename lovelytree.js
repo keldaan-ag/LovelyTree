@@ -14,14 +14,20 @@ function getRandomColor() {
 	return color;
 }
 
-ctx.beginPath();
+
 ctx.lineCap="round";
 ctx.lineJoin="round";
 ctx.strokeStyle="#94716b";
-ctx.lineWidth = 10;
+ctx.lineWidth = 7;
 color = getRandomColor();
 
-
+function arbre(x,y){
+	ctx.save();
+	ctx.translate(x,y);
+	branche(0,x,y);
+	ctx.restore();
+	
+}
 
 function branche(gen,x,y){
 	
@@ -58,6 +64,8 @@ function branche(gen,x,y){
 		ctx.fillRect(0,0,2000,2000); 
 	}
 }
-ctx.translate(canvas.width/2,canvas.height)
-branche(0,canvas.width/2,canvas.height)
+
+for (var i = 1; i < 4; i++ ) {
+	arbre(i*canvas.width/4,canvas.height)
+}
 
