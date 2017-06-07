@@ -23,6 +23,7 @@ color = getRandomColor();
 
 function arbre(x,y){
 	ctx.save();
+	color = getRandomColor();
 	ctx.translate(x,y);
 	branche(0,x,y);
 	ctx.restore();
