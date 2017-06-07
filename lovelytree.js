@@ -33,7 +33,7 @@ function arbre(x,y){
 function branche(gen,x,y){
 	
 	if(gen<8){
-		
+		ctx.beginPath();
 		ctx.moveTo(0,0);
 		ctx.lineTo(0,-y/7);	
 		ctx.stroke();
@@ -57,12 +57,17 @@ function branche(gen,x,y){
 		}
 		else{
 			branche(gen,x,y);
-
 		}	
+		ctx.closePath();
 	}
 	else{
-		ctx.fillStyle = color ;
-		ctx.fillRect(0,0,2000,2000); 
+		ctx.beginPath();
+		ctx.fillStyle   = color ;
+		ctx.strokeStyle = color;
+		ctx.arc(0, 0, 1500 + Math.random()*2000 , 0, 2 * Math.PI, false);
+		ctx.fill();
+		ctx.stroke();
+		ctx.closePath();
 	}
 }
 
