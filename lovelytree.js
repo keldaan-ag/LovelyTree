@@ -1,8 +1,12 @@
-
 var canvas = document.getElementById('canvas');
-canvas.width = 1900;
-canvas.height = 1000;
+canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 var ctx    = canvas.getContext("2d");
+ctx.lineCap="round";
+ctx.lineJoin="round";
+ctx.strokeStyle="#94716b";
+ctx.lineWidth = 7;
+color = getRandomColor();
 
 
 function getRandomColor() {
@@ -13,13 +17,6 @@ function getRandomColor() {
 	}
 	return color;
 }
-
-
-ctx.lineCap="round";
-ctx.lineJoin="round";
-ctx.strokeStyle="#94716b";
-ctx.lineWidth = 7;
-color = getRandomColor();
 
 function arbre(x,y){
 	ctx.save();
