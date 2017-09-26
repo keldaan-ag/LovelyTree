@@ -22,38 +22,42 @@ function arbre(x,y){
 	ctx.save();
 	color = getRandomColor();
 	ctx.translate(x,y);
-	branche(0,x,y);
+	branche(0,x,y,0);
 	ctx.restore();
 	
 }
 
-function branche(gen,x,y){
-	
-	if(gen<8){
+function branche(gen,x,y,step){
+	var l_branche = 0;
+	if(step<8){
 		ctx.beginPath();
 		ctx.moveTo(0,0);
-		ctx.lineTo(0,-y/7);	
+		l_branche = -y/7 - (Math.random()*100-50)
+		ctx.lineTo(0,l_branche);	
 		ctx.stroke();
-		ctx.translate(0,-y/7);
+		ctx.translate(0,l_branche);
 		ctx.rotate(Math.random()*0.2-0.1)
 		
 		if(Math.random()<0.6){
 						
 			ctx.rotate(-0.3);	
-			ctx.scale(0.6,0.6);		
+			ctx.scale(0.8,0.8);		
 			
 			ctx.save();
-			branche(gen+1,x,y);
+			branche(gen+1,x,y,step+1);
 			ctx.restore();			
 			
 			ctx.rotate(0.6);
 			
 			ctx.save();
-			branche(gen+1,x,y);
+			branche(gen+1,x,y,step+1);
 			ctx.restore();
 		}
 		else{
-			branche(gen,x,y);
+			ctx.scale(0.8,0.8);	
+			ctx.save();
+			branche(gen,x,y,step+1);
+			ctx.restore();	
 		}	
 		ctx.closePath();
 	}
@@ -61,7 +65,7 @@ function branche(gen,x,y){
 		ctx.beginPath();
 		ctx.fillStyle   = color ;
 		ctx.strokeStyle = color;
-		ctx.arc(0, 0, 1500 + Math.random()*2000 , 0, 2 * Math.PI, false);
+		ctx.arc(0, 0, 150 + Math.random() * 200, 0, 2 * Math.PI, false);
 		ctx.fill();
 		ctx.stroke();
 		ctx.closePath();
