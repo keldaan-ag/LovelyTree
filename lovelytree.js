@@ -72,7 +72,12 @@ function branche(gen,x,y,step){
 	}
 }
 
+arbre(canvas.width/4, canvas.height)
+arbre(3 * canvas.width/4, canvas.height)
+arbre(2 * canvas.width/4, canvas.height)
+/*
 for (var i = 1; i < 4; i++ ) {
 	arbre(i*canvas.width/4,canvas.height)
 }
+*/
 
