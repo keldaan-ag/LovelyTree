@@ -32,7 +32,7 @@ function branche(gen,x,y,step){
 	if(step<8){
 		ctx.beginPath();
 		ctx.moveTo(0,0);
-		l_branche = -y/7 - (Math.random()*100-50)
+		l_branche = -y/7 - (y/7)* (Math.random()*2-1)
 		ctx.lineTo(0,l_branche);	
 		ctx.stroke();
 		ctx.translate(0,l_branche);
@@ -65,19 +65,20 @@ function branche(gen,x,y,step){
 		ctx.beginPath();
 		ctx.fillStyle   = color ;
 		ctx.strokeStyle = color;
-		ctx.arc(0, 0, 150 + Math.random() * 200, 0, 2 * Math.PI, false);
+		ctx.arc(0, 0, 360 - step*10 + Math.random() * 50, 0, 2 * Math.PI, false);
 		ctx.fill();
 		ctx.stroke();
 		ctx.closePath();
 	}
 }
-
+/*
 arbre(canvas.width/4, canvas.height)
 arbre(3 * canvas.width/4, canvas.height)
 arbre(2 * canvas.width/4, canvas.height)
-/*
-for (var i = 1; i < 4; i++ ) {
-	arbre(i*canvas.width/4,canvas.height)
-}
 */
+
+for (var i = 1; i < 3; i++ ) {
+	arbre(i*canvas.width/3,canvas.height)
+}
+
 
